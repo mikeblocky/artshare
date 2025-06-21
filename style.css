@@ -1,0 +1,119 @@
+/* --- color palette --- */
+:root {
+    --bg-color: #FAF3E0;        /* soft linen */
+    --card-bg-color: #EFEBE9;   /* light greyish beige */
+    --text-color: #5D4037;      /* dark coffee brown */
+    --accent-color: #A1887F;    /* muted brown */
+    --border-color: #D7CCC8;    /* softer muted brown */
+}
+
+/* --- global & typography --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'source code pro', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 2rem 1rem 100px; /* space for the fixed taskbar */
+    text-transform: lowercase;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+h1, h2, h3 { line-height: 1.2; margin-bottom: 0.5em; }
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 1.8rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 2rem; }
+h3 { font-size: 1.2rem; }
+a { color: var(--accent-color); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--text-color); }
+
+/* --- headers --- */
+header { text-align: center; margin-bottom: 3rem; }
+header .tagline { font-size: 1.1rem; color: var(--accent-color); }
+
+/* --- user profile header --- */
+.user-profile { display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem; text-align: left; }
+.avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-color); }
+.user-details h1 { margin-bottom: 0.2em; }
+
+/* --- upload dialog (modal) --- */
+dialog { margin: auto; padding: 2rem; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--card-bg-color); color: var(--text-color); width: 90%; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+dialog::backdrop { background: rgba(93, 64, 55, 0.5); backdrop-filter: blur(4px); }
+#upload-form { display: grid; gap: 1.5rem; }
+.form-group { display: flex; flex-direction: column; }
+.form-group label { font-weight: 700; margin-bottom: 0.5rem; }
+input[type="text"], input[type="email"], input[type="password"] { padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 4px; background-color: var(--bg-color); font-family: 'source code pro', monospace; font-size: 1rem; color: var(--text-color); text-transform: lowercase; }
+input::placeholder { text-transform: lowercase; }
+input:focus { outline: 2px solid var(--accent-color); border-color: var(--accent-color); }
+input[type="file"] { display: none; }
+.file-label { display: inline-block; padding: 0.8rem 1.2rem; background-color: #fff; border: 1px dashed var(--accent-color); border-radius: 4px; cursor: pointer; text-align: center; transition: background-color 0.2s, color 0.2s; }
+.file-label:hover { background-color: var(--accent-color); color: var(--bg-color); }
+.form-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem; }
+.note { margin-top: 1rem; font-size: 0.8rem; color: var(--accent-color); }
+
+/* --- buttons --- */
+.btn { padding: 0.7rem 1.5rem; background-color: var(--text-color); color: var(--bg-color); border: 1px solid var(--text-color); border-radius: 4px; font-family: 'source code pro', monospace; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease-in-out; display: inline-block; text-align: center; }
+.btn:hover { background-color: var(--accent-color); border-color: var(--accent-color); }
+.btn-outline { background-color: transparent; color: var(--text-color); border: 1px solid var(--border-color); }
+.btn-outline:hover { background-color: var(--text-color); border-color: var(--text-color); color: var(--bg-color); }
+
+/* --- gallery grid --- */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+.art-card { background-color: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+.art-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); }
+.art-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.art-info { padding: 1.5rem; }
+.art-info p { font-size: 0.9rem; color: var(--accent-color); margin-bottom: 1rem; }
+.art-info .btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+
+/* --- floating taskbar --- */
+.taskbar { position: fixed; bottom: 0; left: 0; width: 100%; background-color: rgba(239, 235, 233, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--border-color); padding: 0 1rem; z-index: 1000; }
+.taskbar-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 65px; }
+.taskbar-links a { font-weight: 700; margin-right: 1.5rem; padding: 0.5rem; border-radius: 4px; }
+.taskbar-actions { display: flex; align-items: center; gap: 0.75rem; }
+.taskbar a.active { background-color: var(--border-color); }
+
+/* --- ✨ new authentication page styles ✨ --- */
+body.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem; /* remove bottom padding */
+}
+.auth-card {
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+.auth-card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.auth-card h1 a {
+    color: var(--text-color);
+}
+.auth-card h2 {
+    font-size: 1.2rem;
+    text-align: left;
+    border: none;
+    margin-bottom: 1.5rem;
+}
+.auth-card form {
+    display: grid;
+    gap: 1.2rem;
+    text-align: left;
+}
+.auth-card .btn {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+.auth-switch-link {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}

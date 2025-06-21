@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artshare | gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>artshare</h1>
+            <p class="tagline">// a simple space to share your creations.</p>
+        </header>
+
+        <main>
+            <section id="gallery">
+                <h2>gallery</h2>
+                <div class="gallery-grid">
+                    <!-- art card 1 -->
+                    <article class="art-card">
+                        <img src="https://placehold.co/400x300/A1887F/FAF3E0?text=artwork" alt="artwork">
+                        <div class="art-info">
+                            <h3>cosmic drift</h3>
+                            <p>by <a href="user.html">astrojane</a></p>
+                            <button class="btn btn-outline">share</button>
+                        </div>
+                    </article>
+                    <!-- art card 2 -->
+                    <article class="art-card">
+                        <img src="https://placehold.co/400x300/5D4037/FAF3E0?text=artwork" alt="artwork">
+                        <div class="art-info">
+                            <h3>city lines</h3>
+                            <p>by <a href="user.html">urbansketcher</a></p>
+                            <button class="btn btn-outline">share</button>
+                        </div>
+                    </article>
+                    <!-- art card 3 -->
+                    <article class="art-card">
+                        <img src="https://placehold.co/400x300/EFEBE9/5D4037?text=artwork" alt="artwork">
+                        <div class="art-info">
+                            <h3>simple forms</h3>
+                            <p>by <a href="user.html">geo</a></p>
+                            <button class="btn btn-outline">share</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- upload dialog (floating window) -->
+    <dialog id="upload-dialog">
+        <form id="upload-form" method="dialog">
+            <h2>upload your artwork</h2>
+            <div class="form-group">
+                <label for="art-title">title</label>
+                <input type="text" id="art-title" name="art-title" placeholder="e.g., 'sunset over the lake'">
+            </div>
+            <div class="form-group">
+                <label for="art-file" class="file-label">choose an image file...</label>
+                <input type="file" id="art-file" name="art-file" accept="image/*">
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-outline" id="close-upload-btn">cancel</button>
+                <button type="submit" class="btn">upload</button>
+            </div>
+            <p class="note">*this is a demo. uploading does not work.</p>
+        </form>
+    </dialog>
+
+    <!-- floating taskbar -->
+    <nav class="taskbar">
+        <div class="taskbar-content">
+            <div class="taskbar-links">
+                <a href="index.html" class="active">gallery</a>
+                <a href="#" id="open-upload-btn">upload</a>
+            </div>
+            <div class="taskbar-actions">
+                <a href="login.html" class="btn btn-outline">log in</a>
+                <a href="signup.html" class="btn">sign up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- link to javascript -->
+    <script src="main.js"></script>
+</body>
+
+</html>
